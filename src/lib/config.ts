@@ -13,7 +13,7 @@ export const SITE = {
   email: "wadeechy18@gmail.com",
   github: "https://github.com/wadeechy18-cmd",
   linkedin: "https://www.linkedin.com/in/wadee-chy-5b29a6414/",
-  cv: "[CV_URL]",
+  cv: "/Wadee_Mashrur_Chowdhury_CV.pdf",
   siteUrl: "https://wadeeportfolio.vercel.app", // used for metadataBase / Open Graph
 };
 
