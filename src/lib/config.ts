@@ -9,11 +9,12 @@ export const SITE = {
   shortName: "WC", // initials, used in nav logo / footer mark
   title: "Software Developer & Founder",
   tagline: "Software Developer · Founder · Builder",
+  location: "Sylhet, Bangladesh",
   email: "wadeechy18@gmail.com",
   github: "https://github.com/wadeechy18-cmd",
   linkedin: "https://www.linkedin.com/in/wadee-chy-5b29a6414/",
   cv: "[CV_URL]",
-  siteUrl: "https://example.com", // used for metadataBase / Open Graph
+  siteUrl: "https://wadeeportfolio.vercel.app", // used for metadataBase / Open Graph
 };
 
 export const NAV_LINKS = [
@@ -35,7 +36,7 @@ export const HERO = {
 
 export const ABOUT = {
   paragraphs: [
-    "I'm a student and aspiring software engineer who builds software products and businesses alongside my studies. I'm currently developing my technical skills while simultaneously running businesses, managing a team, and building software in production.",
+    "I'm based in Sylhet, Bangladesh, and an aspiring software engineer who builds software products and businesses alongside my studies. I completed my OTHM Level 3 Diploma in August 2025 and am currently applying to Computer Science and Engineering degree programs, while developing my technical skills through real, production software.",
     "I'm interested in the intersection of software, AI, and entrepreneurship. I like building things from scratch — from software products to businesses — and learning by solving real problems.",
     "Alongside development and business, I teach at a secondary school and privately tutor students, which has sharpened how I explain complex ideas clearly and simply.",
   ],
@@ -46,7 +47,7 @@ export const ABOUT = {
     },
     {
       label: "Entrepreneurship",
-      description: "Founded and operate three businesses, from concept through to live operation.",
+      description: "Founded or co-founded three businesses, from concept through to live operation.",
     },
     {
       label: "Leadership",
@@ -61,32 +62,38 @@ export const ABOUT = {
 
 export const FEATURED_PROJECT = {
   name: "ExcelAI",
-  label: "AI-Assisted Spreadsheet Platform",
+  label: "AI-Powered Spreadsheet Automation Platform",
   description:
-    "A spreadsheet platform for cleaning, formatting, and analyzing Excel workbooks — built to work like a real spreadsheet first, with AI layered in for natural-language questions and reasoning over data.",
+    "A full-stack, AI-integrated spreadsheet automation platform — built to work like a real spreadsheet first, with AI layered in for natural-language questions and reasoning over data.",
   problem:
-    "Spreadsheet work is often repetitive and requires knowledge of formulas, functions, and manual data manipulation. Most operations don't need AI at all — they need to be fast and reliable — but some questions about the data genuinely require reasoning. ExcelAI explores that split.",
+    "Spreadsheet work is often repetitive, and routing every operation through an LLM is slow and expensive. ExcelAI is built around a local-first spreadsheet engine, with AI called in only where genuine reasoning over the data is required.",
   approach:
-    "The platform combines a Python/FastAPI backend with a Next.js and TypeScript frontend. Spreadsheet data is parsed and manipulated using pandas and openpyxl. Standard spreadsheet operations run locally and instantly; AI (via LLM APIs) is only invoked for natural-language questions and reasoning over the data, including generating a new spreadsheet directly from a prompt.",
+    "The backend is built in Python/FastAPI with JWT authentication (including refresh tokens), a PostgreSQL database via SQLAlchemy and Alembic, and a multi-provider AI chat layer supporting Claude, Gemini, DeepSeek, and OpenAI-compatible APIs. The Next.js/TypeScript frontend covers authentication flows, a dashboard, an admin area, and workspace pages, tested end-to-end with Playwright. A standalone Python spreadsheet engine, built on pandas and openpyxl, handles data cleaning, formatting, formula generation, and native chart creation — designed to run core operations locally rather than through an LLM, to keep the platform fast and reduce AI/API costs.",
   technologies: [
     "Python",
     "FastAPI",
     "Next.js",
     "TypeScript",
     "PostgreSQL",
+    "SQLAlchemy",
+    "Alembic",
     "pandas",
     "openpyxl",
+    "JWT Auth",
+    "Playwright",
     "AI / LLM APIs",
   ],
   engineeringAreas: [
-    "Local-first spreadsheet operations with AI used only where reasoning is required",
-    "Natural-language question answering over spreadsheet data",
-    "Spreadsheet parsing and data manipulation",
-    "Generating spreadsheets directly from a prompt",
+    "JWT authentication with refresh tokens and a PostgreSQL data layer (SQLAlchemy / Alembic)",
+    "Multi-provider AI chat layer (Claude, Gemini, DeepSeek, OpenAI-compatible)",
+    "Local-first spreadsheet engine for cleaning, formatting, formula generation, and chart creation",
+    "Workbook generator for ready-made templates (invoice, payroll, CRM, budget, inventory)",
+    "Usage tracking and rate-limiting for the platform's billing layer",
+    "End-to-end testing with Playwright",
   ],
   status: "Live",
   liveUrl: "https://datapilot-chi.vercel.app",
-  githubUrl: "[EXCELAI_GITHUB_URL]",
+  githubUrl: "https://github.com/wadeechy18-cmd/datapilot",
 };
 
 export type Business = {
@@ -104,27 +111,25 @@ export const BUSINESSES: Business[] = [
     role: "Founder",
     tag: "Accounting & Outsourcing",
     description:
-      "An accounting outsourcing business supporting accounting firms in the UK, Australia, and New Zealand with Xero-related work and outsourced accounting services.",
+      "A sub-accounting outreach business supporting accounting firms in the UK, Australia, and New Zealand with Xero-related and outsourced accounting services.",
     contributions: [
       "Founded the business",
-      "Built the website",
-      "Developed business systems and workflows",
-      "Manage team operations",
-      "Work on international business development",
+      "Built and maintain the company website",
+      "Lead a 6-person team, including client-partnership associates, through task delegation, SOP creation, and performance monitoring",
+      "Developed business workflows and manage international client outreach and operations",
     ],
     website: "https://www.smaccountingltd.com/",
   },
   {
     name: "SolveIQ",
-    role: "Founder",
-    tag: "Creative & Digital Services",
+    role: "Co-Founder",
+    tag: "Digital Services Agency",
     description:
-      "A digital services business offering video editing, graphic design, websites, and social media content for small businesses that need quality creative work without agency overhead.",
+      "A web and app development agency, co-founded as Vela Digital, offering software development, design, and digital marketing — including video editing, graphic design, and social content — for agencies and small businesses.",
     contributions: [
-      "Founded the business",
-      "Built and developed the website",
-      "Work on business development",
-      "Manage operations",
+      "Co-founded the agency",
+      "Built and maintain the agency's web presence",
+      "Contribute to business development",
     ],
     website: "https://solveiq-six.vercel.app/",
   },
@@ -133,12 +138,11 @@ export const BUSINESSES: Business[] = [
     role: "Founder",
     tag: "Streetwear / Apparel",
     description:
-      "A youth-focused clothing and athletic streetwear brand — heavyweight hoodies, boxy tees, and compression essentials, built around minimal design.",
+      "A youth-focused athletic and streetwear clothing brand — heavyweight hoodies, boxy tees, and compression essentials, built around minimal design.",
     contributions: [
       "Founded the brand",
-      "Brand development",
-      "Website development",
-      "Product and business development",
+      "Developed the brand's web presence",
+      "Work on brand and business development",
     ],
     website: "https://synx-seven.vercel.app/",
   },
@@ -168,38 +172,45 @@ export type ExperienceItem = {
 
 export const EXPERIENCE: ExperienceItem[] = [
   {
-    role: "Founder / Software Developer",
-    place: "My Businesses",
+    role: "Founder & Developer",
+    place: "ExcelAI",
     period: "2026 — Present",
     points: [
-      "Founded multiple businesses",
-      "Built production websites",
-      "Developed software products",
-      "Managed a team",
-      "Worked on business development and operations",
+      "Designed and built the Python/FastAPI backend, including JWT auth and a multi-provider AI chat layer",
+      "Developed the Next.js/TypeScript frontend, tested end-to-end with Playwright",
+      "Built a standalone spreadsheet engine (pandas, openpyxl) to run core operations locally",
+      "Implemented a workbook generator, usage tracking, and rate-limiting for the platform's billing layer",
+    ],
+  },
+  {
+    role: "Founder / Co-Founder",
+    place: "SM Accounting · SolveIQ · SYNX",
+    period: "2025 — Present",
+    points: [
+      "Founded SM Accounting and SYNX; co-founded SolveIQ (Vela Digital)",
+      "Built and maintain each business's website",
+      "Lead a 6-person team through task delegation, SOP creation, and performance monitoring",
+      "Manage international client outreach, business development, and day-to-day operations",
     ],
   },
   {
     role: "Teacher",
     place: "Springfield School",
-    period: "Current",
+    period: "2025 — Present",
     points: [
-      "Teaching students",
-      "Preparing lessons",
-      "Explaining concepts clearly",
-      "Managing classroom responsibilities",
+      "Teach mathematics, English, and science",
+      "Prepare lessons and explain concepts clearly",
+      "Manage classroom responsibilities",
     ],
   },
   {
     role: "Private Tutor",
-    place: "Independent",
-    period: "Current",
+    place: "Self-employed",
+    period: "2024 — Present",
     points: [
-      "Currently provide private tuition to 3 students",
-      "Lesson planning",
-      "Explaining concepts",
-      "Tracking student progress",
-      "Communication and responsibility",
+      "Provide private tuition to 3 students",
+      "Plan lessons around individual needs",
+      "Monitor student progress and adapt teaching approach accordingly",
     ],
   },
 ];
@@ -215,11 +226,11 @@ export const SKILLS = [
   },
   {
     group: "Backend",
-    items: ["FastAPI", "REST APIs", "PostgreSQL"],
+    items: ["FastAPI", "REST APIs", "PostgreSQL", "SQLAlchemy", "Alembic"],
   },
   {
     group: "Data / Automation",
-    items: ["pandas", "openpyxl"],
+    items: ["pandas", "openpyxl", "NumPy"],
   },
   {
     group: "AI",
@@ -227,7 +238,7 @@ export const SKILLS = [
   },
   {
     group: "Tools / Deployment",
-    items: ["Git", "GitHub", "Vercel"],
+    items: ["Git", "GitHub", "Vercel", "Playwright"],
   },
 ];
 

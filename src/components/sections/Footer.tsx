@@ -14,7 +14,9 @@ export default function Footer() {
             <p className="font-mono text-sm font-medium text-foreground">
               {SITE.name}
             </p>
-            <p className="mt-1 text-sm text-subtle">{SITE.tagline}</p>
+            <p className="mt-1 text-sm text-subtle">
+              {SITE.tagline} · {SITE.location}
+            </p>
           </div>
 
           <div className="flex items-center gap-5">
